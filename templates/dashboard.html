@@ -10,4 +10,22 @@
     <button type="submit">Add Study</button>
 </form>
 
+<h3>Total Study Time: {{ total_time }} mins</h3>
+
+<table class="table">
+    <tr>
+        <th>Subject</th>
+        <th>Time</th>
+        <th>Date</th>
+    </tr>
+
+    {% for row in data %}
+    <tr>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }} mins</td>
+        <td>{{ row[3] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}
