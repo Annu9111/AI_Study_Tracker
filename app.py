@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect,session
 import sqlite3
 from datetime import datetime
+from models.db import init_db
+
+init_db()
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
