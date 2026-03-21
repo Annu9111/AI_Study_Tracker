@@ -43,6 +43,18 @@ def add():
 
     return redirect('/dashboard')
 
+@app.route('/delete/<int:id>')
+def delete(id):
+    conn = get_db()
+    cursor = conn.cursor()
+
+    cursor.execute("DELETE FROM study WHERE id = ?", (id,))
+
+    conn.commit()
+    conn.close()
+
+    return redirect('/dashboard')
+
 
 # if __name__ == "__main__":
 #     app.run(debug=True)

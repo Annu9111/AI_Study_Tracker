@@ -98,6 +98,7 @@ body {
 
 .form {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .form input {
@@ -133,4 +134,9 @@ body {
     .table {
         font-size: 12px;
     }
+}
+
+.delete-btn {
+    color: red;
+    text-decoration: none;
 }
