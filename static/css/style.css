@@ -136,8 +136,35 @@ body {
     }
 }
 
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
 .delete-btn {
+    background: red;
     color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
     text-decoration: none;
-    background-color: red;
+}
+
+.edit-btn {
+    color: #00aaff;
+    text-decoration: none;
+}
+.edit-btn {
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+.delete-btn:hover {
+    background: darkred;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
 }
