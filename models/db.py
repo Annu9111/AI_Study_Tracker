@@ -1,4 +1,6 @@
 import sqlite3
+import os
+os.makedirs("database", exist_ok=True)
 
 def init_db():
     conn = sqlite3.connect('database/database.db')
