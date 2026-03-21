@@ -21,6 +21,20 @@ def dashboard():
     data = cursor.fetchall()
 
     total_time = sum(row[2] for row in data)
+    
+    #  Prepare data for chart
+    subjects = {}
+    for row in data:
+        subject = row[1]
+        time = row[2]
+
+        if subject in subjects:
+            subjects[subject] += time
+        else:
+            subjects[subject] = time
+
+    labels = list(subjects.keys())
+    values = list(subjects.values())
 
     #  Streak logic
     dates = list(set(row[3][:10] for row in data))  # get unique dates
@@ -38,8 +52,11 @@ def dashboard():
 
     conn.close()
 
-    return render_template("dashboard.html", data=data,
-                           total_time=total_time, streak=streak)
+    return render_template("dashboard.html",
+                       data=data,
+                       total_time=total_time,
+                       labels=labels,
+                       values=values)
 
 
 @app.route('/add', methods=['POST'])
