@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect,session
 import sqlite3
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
 def get_db():
@@ -116,6 +117,49 @@ def edit(id):
     conn.close()
 
     return render_template("edit.html", row=row)
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = generate_password_hash(request.form['password'])
+
+        conn = get_db()
+        cursor = conn.cursor()
+
+        try:
+            cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)",
+                           (username, password))
+            conn.commit()
+        except:
+            return "User already exists"
+
+        conn.close()
+        return redirect('/login')
+
+    return render_template("signup.html")
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        conn = get_db()
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT * FROM users WHERE username=?", (username,))
+        user = cursor.fetchone()
+
+        conn.close()
+
+        if user and check_password_hash(user[2], password):
+            session['user_id'] = user[0]
+            return redirect('/dashboard')
+        else:
+            return "Invalid credentials"
+
+    return render_template("login.html")
 
 # if __name__ == "__main__":
 #     app.run(debug=True)
