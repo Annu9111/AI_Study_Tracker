@@ -14,7 +14,18 @@ def home():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template("dashboard.html")
+    conn = get_db()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM study ORDER BY date DESC")
+    data = cursor.fetchall()
+
+    # Calculate total time
+    total_time = sum(row[2] for row in data)
+
+    conn.close()
+
+    return render_template("dashboard.html", data=data, total_time=total_time)
 
 
 @app.route('/add', methods=['POST'])
