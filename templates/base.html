@@ -8,21 +8,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+
     <nav class="navbar">
-    <div class="logo">📚 Study Tracker</div>
+        <div class="logo">📚 Study Tracker</div>
 
-    <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-    </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
     </nav>
-
 
     <div class="container">
         {% block content %}{% endblock %}
     </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 </html>

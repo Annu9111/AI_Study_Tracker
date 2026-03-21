@@ -51,12 +51,14 @@ def dashboard():
             break
 
     conn.close()
+    productivity = min(100, total_time * 2) 
 
     return render_template("dashboard.html",
                        data=data,
                        total_time=total_time,
                        labels=labels,
-                       values=values)
+                       values=values
+                       productivity=productivity)
 
 
 @app.route('/add', methods=['POST'])

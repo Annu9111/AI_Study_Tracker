@@ -168,3 +168,9 @@ body {
 .edit-btn:hover {
     background: #0056b3;
 }
+
+.chart-container {
+    width: 200%;
+    max-width: 600px;
+    margin: 20px auto;
+}
