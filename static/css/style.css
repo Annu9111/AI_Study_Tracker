@@ -174,3 +174,30 @@ body {
     max-width: 600px;
     margin: 20px auto;
 }
+
+@media (max-width: 768px) {
+    h2, h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form input, .form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        max-width: 100%;
+    }
+
+    canvas {
+        width: 100% !important;
+    }
+}

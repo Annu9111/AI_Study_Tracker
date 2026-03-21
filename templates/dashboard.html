@@ -12,6 +12,8 @@
 
 <h3>Total Study Time: {{ total_time }} mins</h3>
 <h3>⚡ Productivity: {{ productivity }}%</h3>
+<h3>🤖 AI Suggestion: {{ suggestion }}</h3>
+<h3>📊 Study Analytics</h3>
 <div class="chart-container">
     <canvas id="myChart"></canvas>
 </div>
@@ -37,11 +39,22 @@
     {% endfor %}
 </table>
 <script>
-const labels = {{ labels | tojson }};
-const values = {{ values | tojson }};
+window.onload = function () {
 
-if (labels.length > 0) {
-    const ctx = document.getElementById('myChart');
+    const labels = {{ labels | tojson | safe }};
+    const values = {{ values | tojson | safe }};
+
+    console.log("Labels:", labels);
+    console.log("Values:", values);
+
+    const canvas = document.getElementById('myChart');
+
+    if (!canvas) {
+        console.error("Canvas not found");
+        return;
+    }
+
+    const ctx = canvas.getContext('2d');
 
     new Chart(ctx, {
         type: 'bar',
@@ -50,10 +63,13 @@ if (labels.length > 0) {
             datasets: [{
                 label: 'Study Time (mins)',
                 data: values,
-                borderWidth: 1
+                backgroundColor: 'rgba(0, 255, 136, 0.7)'
             }]
+        },
+        options: {
+            responsive: true
         }
     });
-}
+};
 </script>
 {% endblock %}

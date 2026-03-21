@@ -52,13 +52,20 @@ def dashboard():
 
     conn.close()
     productivity = min(100, total_time * 2) 
+    if total_time < 60:
+        suggestion = "Try to study at least 1 hour daily."
+    elif total_time < 180:
+        suggestion = "Good progress! Try increasing focus time."
+    else:
+        suggestion = "Excellent consistency! Keep it up 🔥"
 
     return render_template("dashboard.html",
                        data=data,
                        total_time=total_time,
                        labels=labels,
-                       values=values
-                       productivity=productivity)
+                       values=values,
+                       productivity=productivity,
+                       suggestion=suggestion)
 
 
 @app.route('/add', methods=['POST'])
