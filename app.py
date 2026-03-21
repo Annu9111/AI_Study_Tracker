@@ -4,6 +4,8 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
+app.secret_key = "your_secret_key"
+
 def get_db():
     return sqlite3.connect('database/database.db')
 
@@ -15,6 +17,9 @@ def home():
 
 @app.route('/dashboard')
 def dashboard():
+    if 'user_id' not in session:
+        return redirect('/login')
+    
     conn = get_db()
     cursor = conn.cursor()
 
@@ -160,6 +165,11 @@ def login():
             return "Invalid credentials"
 
     return render_template("login.html")
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
 
 # if __name__ == "__main__":
 #     app.run(debug=True)
