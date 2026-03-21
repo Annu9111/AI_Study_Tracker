@@ -114,3 +114,23 @@ body {
     border: none;
     border-radius: 5px;
 }
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    border-bottom: 1px solid #444;
+    text-align: center;
+}
+
+.table th {
+    background: #2a2a2a;
+}
+@media (max-width: 768px) {
+    .table {
+        font-size: 12px;
+    }
+}
