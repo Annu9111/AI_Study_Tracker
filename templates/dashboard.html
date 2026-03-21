@@ -13,10 +13,6 @@
 <h3>Total Study Time: {{ total_time }} mins</h3>
 <h3>⚡ Productivity: {{ productivity }}%</h3>
 <h3>🤖 AI Suggestion: {{ suggestion }}</h3>
-<h3>📊 Study Analytics</h3>
-<div class="chart-container">
-    <canvas id="myChart"></canvas>
-</div>
 
 <table class="table">
     <tr>
@@ -38,7 +34,13 @@
     </tr>
     {% endfor %}
 </table>
+
+<h3>📊 Study Analytics</h3>
+<div class="chart-container">
+    <canvas id="myChart"></canvas>
+</div>
 <script>
+    
 window.onload = function () {
 
     const labels = {{ labels | tojson | safe }};
