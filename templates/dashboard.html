@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <h2>Dashboard</h2>
 
-<div class="cards">
-    <div class="card">📚 Total Hours: 0</div>
-    <div class="card">🔥 Streak: 0</div>
-    <div class="card">⚡ Productivity: 0%</div>
-</div>
+<form action="/add" method="POST" class="form">
+    <input type="text" name="subject" placeholder="Enter subject" required>
+    <input type="number" name="time" placeholder="Time (minutes)" required>
+    <button type="submit">Add Study</button>
+</form>
 
 {% endblock %}
