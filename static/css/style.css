@@ -203,9 +203,9 @@ body {
     }
 }
 
-/* 🔐 Auth Pages (Login / Signup) */
+/* 🔐 Auth Pages */
 
-.form {
+.auth-form {
     max-width: 400px;
     margin: 40px auto;
     background: #1e1e1e;
@@ -216,8 +216,7 @@ body {
     gap: 15px;
 }
 
-/* Inputs */
-.form input {
+.auth-form input {
     padding: 12px;
     border: none;
     border-radius: 5px;
@@ -226,12 +225,11 @@ body {
     font-size: 14px;
 }
 
-.form input::placeholder {
+.auth-form input::placeholder {
     color: #aaa;
 }
 
-/* Button */
-.form button {
+.auth-form button {
     padding: 12px;
     border: none;
     border-radius: 5px;
@@ -239,32 +237,16 @@ body {
     color: black;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.form button:hover {
+.auth-form button:hover {
     background: #00cc6a;
 }
 
-/* Heading */
-h2 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* 📱 MOBILE RESPONSIVE */
+/* 📱 Mobile */
 @media (max-width: 768px) {
-    .form {
+    .auth-form {
         width: 90%;
         margin: 20px auto;
-        padding: 20px;
-    }
-
-    .form input {
-        font-size: 16px;
-    }
-
-    .form button {
-        font-size: 16px;
     }
 }
