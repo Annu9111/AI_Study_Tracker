@@ -15,9 +15,13 @@
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
-            <a href="/login">Login</a>
-            <a href="/signup">Signup</a>
-            <a href="/logout">Logout</a>
+            {% if session.get('user_id') %}
+                <span class="username">👋 {{ session.get('username') }}</span>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/signup">Signup</a>
+            {% endif %}
         </div>
     </nav>
 

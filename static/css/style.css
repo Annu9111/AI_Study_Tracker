@@ -257,3 +257,9 @@ body {
     font-size: 28px;
     color: #00ff88;
 }
+
+.username {
+    color: #00ff88;
+    margin-left: 15px;
+    font-weight: bold;
+}
