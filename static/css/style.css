@@ -14,14 +14,25 @@ body {
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px;
+    align-items: center; /* NEW */
+    padding: 15px 30px;
     background: #1e1e1e;
 }
 
-.navbar a {
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links a {
     color: white;
-    margin-left: 15px;
+    margin-left: 20px;
     text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00ff88; /* glow effect */
 }
 
 /* Container */
@@ -32,7 +43,16 @@ body {
 /* Hero */
 .hero {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 100px;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #ccc;
 }
 
 .btn {
@@ -68,6 +88,10 @@ body {
 
     .navbar {
         flex-direction: column;
-        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        margin-top: 10px;
     }
 }
