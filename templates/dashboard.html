@@ -63,7 +63,11 @@ window.onload = function () {
             datasets: [{
                 label: 'Study Time (mins)',
                 data: values,
-                backgroundColor: 'rgba(0, 255, 136, 0.7)'
+                backgroundColor: 'rgba(0, 255, 136, 0.7)',
+                barThickness: 40,         
+                maxBarThickness: 50,       
+                categoryPercentage: 0.5,   
+                barPercentage: 0.5  
             }]
         },
         options: {

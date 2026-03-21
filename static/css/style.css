@@ -170,7 +170,7 @@ body {
 }
 
 .chart-container {
-    width: 200%;
+    width: 100%;
     max-width: 600px;
     margin: 20px auto;
 }
