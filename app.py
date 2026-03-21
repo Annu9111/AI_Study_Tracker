@@ -55,6 +55,27 @@ def delete(id):
 
     return redirect('/dashboard')
 
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit(id):
+    conn = get_db()
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        subject = request.form['subject']
+        time = request.form['time']
+
+        cursor.execute("UPDATE study SET subject=?, time=? WHERE id=?",
+                       (subject, time, id))
+        conn.commit()
+        conn.close()
+
+        return redirect('/dashboard')
+
+    cursor.execute("SELECT * FROM study WHERE id=?", (id,))
+    row = cursor.fetchone()
+    conn.close()
+
+    return render_template("edit.html", row=row)
 
 # if __name__ == "__main__":
 #     app.run(debug=True)

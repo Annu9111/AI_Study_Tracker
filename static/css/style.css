@@ -137,6 +137,7 @@ body {
 }
 
 .delete-btn {
-    color: red;
+    color: white;
     text-decoration: none;
+    background-color: red;
 }

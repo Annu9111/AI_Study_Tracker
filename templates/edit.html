@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Edit Study</h2>
+
+<form method="POST">
+    <input type="text" name="subject" value="{{ row[1] }}" required>
+    <input type="number" name="time" value="{{ row[2] }}" required>
+    <button type="submit">Update</button>
+</form>
+
+{% endblock %}
