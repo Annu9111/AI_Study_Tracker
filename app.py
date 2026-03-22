@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect,session
 import sqlite3
 from datetime import datetime
 from models.db import init_db
-
+import os
 init_db()
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
@@ -177,3 +177,7 @@ def logout():
 
 # if __name__ == "__main__":
 #     app.run(debug=True)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
