@@ -5,7 +5,7 @@ An AI-powered Study Tracker web app built using Flask that helps users track stu
 ---
 
 ## 🌐 Live Demo
-👉 https://ai-study-tracker-2.onrender.com
+👉 https://ai-study-tracker-9rwb.onrender.com/
 
 ---
 
